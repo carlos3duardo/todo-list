@@ -1,0 +1,45 @@
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+form input[type=text] {
+    flex: 1;
+    border-radius: 8px;
+    color: var(--gray-100);
+    font-size: 0.875rem;
+    background-color: var(--gray-500);
+    border: 1px solid var(--gray-500);
+    padding: 1rem;
+}
+
+form input[type=text]:placeholder {
+    color: var(--gray-300);
+}
+
+form input[type=text]:focus {
+    outline: 0;
+    border: 1px solid var(--purple-dark);
+}
+
+form button[type="submit"] {
+    padding: 0.25rem 1rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    background-color: var(--blue-dark);
+    border: 0;
+    border-radius: 8px;
+    color: var(--gray-100);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+form button:hover {
+    background-color: var(--blue);
+}
