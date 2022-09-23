@@ -1,0 +1,30 @@
+.container {
+    margin: 4rem 0 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container li {
+    font-weight: bold;
+    font-size: .875rem;
+}
+
+.counter {
+    padding: 2px 0.5rem;
+    background: var(--gray-400);
+    color: var(--gray-200);
+    border-radius: 50%;
+    font-size: .75rem;
+}
+
+.createdTasks {
+    color: var(--blue);
+}
+
+.finishedTasks {
+    color: var(--purple);
+}

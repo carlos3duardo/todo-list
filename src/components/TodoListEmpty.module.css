@@ -1,0 +1,20 @@
+.emptyList {
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 1px solid var(--gray-400);
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.emptyList p {
+    color: var(--gray-300);
+    font-size: 1rem;
+}
+
+.emptyList figure {
+    margin-bottom: 1.5rem;
+}
+
+.emptyList p strong {
+    display: block;
+}
