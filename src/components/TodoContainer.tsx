@@ -7,24 +7,14 @@ import { TodoList } from './TodoList';
 import { TodoListEmpty } from './TodoListEmpty';
 import { TodoStats } from './TodoStats';
 
+interface TaskInterface {
+  id: string;
+  name: string;
+  done: boolean;
+}
+
 export function TodoContainer() {
-  const [taskList, setTaskList] = useState([
-    {
-      id: uuidv4(),
-      name: 'Trocar a bateria do iPhone de Rafael.',
-      done: false
-    },
-    {
-      id: uuidv4(),
-      name: 'Aprender ReactJS com Typescript no Ignite.',
-      done: true
-    },
-    {
-      id: uuidv4(),
-      name: 'Comprar ração para o doguinho.',
-      done: false
-    }
-  ]);
+  const [taskList, setTaskList] = useState<TaskInterface[]>([]);
 
   const tasksDone = taskList.reduce((acc: number, current: any) => {
     return acc += current.done ? 1 : 0;
