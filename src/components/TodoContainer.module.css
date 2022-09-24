@@ -3,3 +3,9 @@
     max-width: 46rem;
     margin: -1.625rem auto 0 auto;
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+}
