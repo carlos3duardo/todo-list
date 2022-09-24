@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
 import styles from './TodoContainer.module.css';
 import { TodoForm } from './TodoForm';
 import { TodoList } from './TodoList';
@@ -8,17 +10,17 @@ import { TodoStats } from './TodoStats';
 export function TodoContainer() {
   const [taskList, setTaskList] = useState([
     {
-      id: 'x',
+      id: uuidv4(),
       name: 'Trocar a bateria do iPhone de Rafael.',
       done: false
     },
     {
-      id: 'y',
+      id: uuidv4(),
       name: 'Aprender ReactJS com Typescript no Ignite.',
       done: true
     },
     {
-      id: 'z',
+      id: uuidv4(),
       name: 'Comprar ração para o doguinho.',
       done: true
     }
@@ -28,11 +30,31 @@ export function TodoContainer() {
     return acc += current.done ? 1 : 0;
   }, 0);
 
+  function toggleTaskStatus(taskId: string) {
+    const newTaskList = taskList.map(task => {
+      return {
+        id: task.id,
+        name: task.name,
+        done: (task.id === taskId) ? !task.done : task.done
+      }
+    });
+
+    setTaskList(newTaskList);
+  }
+
+  function deleteTask(taskId: string) {
+    const newTaskList = taskList.filter(task => {
+      return task.id !== taskId
+    });
+
+    setTaskList(newTaskList);
+  }
+
   return (
     <main className={styles.container}>
         <TodoForm />
         <TodoStats all={taskList.length} done={tasksDone} />
-        {taskList.length ? <TodoList tasks={taskList} /> : <TodoListEmpty />}
+        {taskList.length ? <TodoList tasks={taskList} toggleFunction={toggleTaskStatus} deleteTask={deleteTask} /> : <TodoListEmpty />}
     </main>
   )
 }
