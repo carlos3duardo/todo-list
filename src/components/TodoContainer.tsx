@@ -22,7 +22,7 @@ export function TodoContainer() {
     {
       id: uuidv4(),
       name: 'Comprar ração para o doguinho.',
-      done: true
+      done: false
     }
   ]);
 
@@ -50,10 +50,20 @@ export function TodoContainer() {
     setTaskList(newTaskList);
   }
 
+  function addNewTask(taskName: string) {
+    setTaskList([...taskList, {
+      id: uuidv4(),
+      name: taskName,
+      done: false
+    }]);
+  }
+
   return (
     <main className={styles.container}>
-        <TodoForm />
+        <TodoForm createTask={addNewTask} />
+
         <TodoStats all={taskList.length} done={tasksDone} />
+
         {taskList.length ? <TodoList tasks={taskList} toggleFunction={toggleTaskStatus} deleteTask={deleteTask} /> : <TodoListEmpty />}
     </main>
   )
