@@ -22,7 +22,7 @@ export function TodoContainer() {
     {
       id: uuidv4(),
       name: 'Comprar ração para o doguinho.',
-      done: true
+      done: false
     }
   ]);
 

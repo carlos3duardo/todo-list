@@ -15,9 +15,20 @@ interface TodoListInterface {
 }
 
 export function TodoList({ tasks, toggleFunction, deleteTask }: TodoListInterface) {
+
+  const finishedTasks = tasks.filter(task => {
+    return task.done;
+  });
+
+  const pendingTasks = tasks.filter(task => {
+    return !task.done;
+  })
+
+  const reorderedTasks = pendingTasks.concat(finishedTasks);
+
   return (
     <ul className={styles.taskList}>
-      {tasks.map(task => {
+      {reorderedTasks.map(task => {
         return (
           <li key={task.id} className={task.done ? styles.taskDone : ''}>
             <div className={styles.checkbox} onClick={() => toggleFunction(task.id)}>{task.done ? <FaCheck size={10} /> : ''}</div>
