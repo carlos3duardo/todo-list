@@ -49,8 +49,15 @@
     border: 2px solid var(--purple);
 }
 
+.taskList li.taskDone .taskName {
+    color: var(--gray-300);
+    text-decoration-line: line-through;
+}
+
 .taskList li .taskName {
     flex: 1;
+    font-size: .875rem;
+    line-height: 140%;
 }
 
 .taskList li .trash a {
