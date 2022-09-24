@@ -1,0 +1,75 @@
+.taskList {
+    margin: 1.5rem 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.taskList li {
+    background-color: var(--gray-500);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: .75rem;
+}
+
+.taskList li .checkbox {
+    border: 2px solid var(--blue);
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskList li .checkbox:hover {
+    border: 2px solid var(--blue-dark);
+}
+
+.taskList li .checkbox:hover::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--blue-dark);
+    opacity: 0.2;
+}
+
+.taskList li.taskDone .checkbox {
+    background-color: var(--purple-dark);
+    border: 2px solid var(--purple-dark);
+}
+
+.taskList li.taskDone .checkbox:hover {
+    background-color: var(--purple);
+    border: 2px solid var(--purple);
+}
+
+.taskList li .taskName {
+    flex: 1;
+}
+
+.taskList li .trash a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--gray-300);
+    border-radius: 4px;
+    transition: all .2s;
+}
+
+.taskList li .trash a:hover {
+    background-color: var(--gray-400);
+    color: var(--danger);
+}
+
+.taskList li + li {
+    margin-top: .75rem;
+}

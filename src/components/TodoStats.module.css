@@ -17,7 +17,7 @@
     padding: 2px 0.5rem;
     background: var(--gray-400);
     color: var(--gray-200);
-    border-radius: 50%;
+    border-radius: 999px;
     font-size: .75rem;
 }
 
